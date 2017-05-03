@@ -1,0 +1,61 @@
+{
+  "name": "prova",
+  "version": "0.0.1",
+  "description": "Node JS API for Prova application",
+  "main": "server.js",
+  "scripts": {
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "app": "node server",
+    "start": "concurrently \"npm run tsc:w\" \"npm run app\" ",
+    "postinstall": "typings install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richcfml/prova.git"
+  },
+  "keywords": [
+    "Testing",
+    "APIs"
+  ],
+  "author": "Richard Ardila",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/richcfml/prova/issues"
+  },
+  "homepage": "https://github.com/richcfml/prova#readme",
+  "dependencies": {
+    "@angular/common": "2.1.1",
+    "@angular/compiler": "2.1.1",
+    "@angular/core": "2.1.1",
+    "@angular/forms": "2.1.1",
+    "@angular/http": "2.1.1",
+    "@angular/platform-browser": "2.1.1",
+    "@angular/platform-browser-dynamic": "2.1.1",
+    "@angular/router": "3.1.1",
+    "body-parser": "^1.17.1",
+    "core-js": "2.4.1",
+    "compression": "^1.6.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.3",
+    "ejs": "^2.5.6",
+    "express": "^4.15.2",
+    "express-session": "^1.15.1",
+    "method-override": "^2.3.8",
+    "mongoose": "^4.9.1",
+    "morgan": "^1.8.1",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "reflect-metadata": "0.1.8",
+    "rxjs": "5.0.0-beta.12",
+    "systemjs": "0.19.39",
+    "zone.js": "0.6.26"
+  },
+  "devDependencies": {
+    "concurrently": "3.1.0",
+    "traceur": "0.0.111",
+    "typescript": "2.0.3",
+    "typings": "1.4.0"
+  }
+}
