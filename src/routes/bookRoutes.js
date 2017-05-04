@@ -1,66 +1,62 @@
 var express = require('express');
 var bookRouter = express.Router();
+var router = function(nav){
+	var books = [
+    	{
+    	    title: 'War and Peace',
+    	    genre: 'Historical Fiction',
+    	    author: 'Lev Nikolayevish Tolstoy',
+    	    read: false
+    	},
+    	{
+    	    title: 'War and Peace',
+    	    genre: 'Historical Fiction',
+    	    author: 'Lev Nikolayevish Tolstoy',
+    	    read: false
+    	},
+    	{
+    	    title: 'War and Peace',
+    	    genre: 'Historical Fiction',
+    	    author: 'Lev Nikolayevish Tolstoy',
+    	    read: false
+    	},
+    	{
+    	    title: 'War and Peace',
+    	    genre: 'Historical Fiction',
+    	    author: 'Lev Nikolayevish Tolstoy',
+    	    read: false
+    	},
+    	{
+    	    title: 'War and Peace',
+    	    genre: 'Historical Fiction',
+    	    author: 'Lev Nikolayevish Tolstoy',
+    	    read: false
+    	},
+    	{
+    	    title: 'War and Peace',
+    	    genre: 'Historical Fiction',
+    	    author: 'Lev Nikolayevish Tolstoy',
+    	    read: false
+    	}];
+	bookRouter.route('/')
+    	.get(function(req, res){
+        	res.render('bookListView', {
+        		title: 'Books', 
+        		nav: nav,
+        		books: books
+        	});
+    	});
 
-var books = [
-    {
-        title: 'War and Peace',
-        genre: 'Historical Fiction',
-        author: 'Lev Nikolayevish Tolstoy',
-        read: false
-    },
-    {
-        title: 'War and Peace',
-        genre: 'Historical Fiction',
-        author: 'Lev Nikolayevish Tolstoy',
-        read: false
-    },
-    {
-        title: 'War and Peace',
-        genre: 'Historical Fiction',
-        author: 'Lev Nikolayevish Tolstoy',
-        read: false
-    },
-    {
-        title: 'War and Peace',
-        genre: 'Historical Fiction',
-        author: 'Lev Nikolayevish Tolstoy',
-        read: false
-    },
-    {
-        title: 'War and Peace',
-        genre: 'Historical Fiction',
-        author: 'Lev Nikolayevish Tolstoy',
-        read: false
-    },
-    {
-        title: 'War and Peace',
-        genre: 'Historical Fiction',
-        author: 'Lev Nikolayevish Tolstoy',
-        read: false
-    }
-    
-];
-bookRouter.route('/')
-    .get(function(req, res){
-        res.render('books', {
-        title: 'Books', 
-        nav: [
-            { 
-                Link:'/Books', 
-                Text: 'Books'
-            }, 
-            {
-                Link:'/Authors', 
-                Text:'Authors'
-            }
-        ],
-        books: books
-        });
-    });
-
-bookRouter.route('/single')
-    .get(function(req, res){
-        res.send('Hello single Book');
-    });
-
-module.exports = bookRouter;
+	bookRouter.route('/:id')
+    	.get(function(req, res){
+			var id = req.params.id;
+        	res.render('bookView', {
+        		title: 'Books', 
+        		nav: nav,
+        		book: books[id]
+        	});
+    	});	
+	
+	return bookRouter;
+}
+module.exports = router;
